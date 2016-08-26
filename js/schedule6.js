@@ -449,9 +449,9 @@ $(document).ready(function() {
 		var latC = 0;
 		var lngC =0;
 		if (cinema_ids) {
-			console.log('all2 init');
-			console.log(all2);
-			console.log(cinema_ids.length);
+			//console.log('all2 init');
+			//console.log(all2);
+			//console.log(cinema_ids.length);
 				for (var i in cinema_ids) {
 						for (var k in all) {
 							if (all[k][0] == cinema_ids[i]) {
@@ -460,20 +460,20 @@ $(document).ready(function() {
 						}
 				}
 
-			console.log('all2 after');
-			console.log(all2);
+			//console.log('all2 after');
+			//console.log(all2);
 
 				for (var i in all2) {
-						console.log(i);
-						console.log(all2[i][0]);
+						//console.log(i);
+						//console.log(all2[i][0]);
 
 						var name 	= all2[i][1];
 						var address = all2[i][2];
 						var lat 	= all2[i][3];
 						var lng 	= all2[i][4];
 
-						console.log('lat: ' + lat);
-						console.log('lng:' + lng);
+						//console.log('lat: ' + lat);
+						//console.log('lng:' + lng);
 
 						latC += parseFloat(lat);
 						lngC += parseFloat(lng);
@@ -488,10 +488,10 @@ $(document).ready(function() {
 						google.maps.event.addListener(marker, 'click', infoCallback(infowindow, marker));
 
 				}
-				console.log('***************')
-				console.log(latC/(all2.length));
-				console.log(lngC/(all2.length));
-				console.log('==++==++==++==');
+				//console.log('***************')
+				//console.log(latC/(all2.length));
+				//console.log(lngC/(all2.length));
+				//console.log('==++==++==++==');
 
 
 				var pos = new google.maps.LatLng(latC/(all2.length), lngC/(all2.length));
@@ -501,7 +501,7 @@ $(document).ready(function() {
 	}
 
 	function clearMarkers() {
-				console.log('******');
+				//console.log('******');
 				setMarkers(map, null);
 	}
 	if (cm === 'clear') {
@@ -510,7 +510,7 @@ $(document).ready(function() {
 	};
 
 	if (cinema_ids) {
-		console.log('****cinema_ids*****');
+		//console.log('****cinema_ids*****');
 		setMarkers(map, all, cinema_ids);
 	}
 
@@ -534,7 +534,7 @@ $(document).ready(function() {
 		e.preventDefault();
 	})
 		.on('click', '.date_link', function(e) {
-			$('.search_input').html('');
+			$('.search_input').val('');
 			//console.log('21');
 			e.preventDefault();
 			window.stop();
