@@ -3,7 +3,7 @@ $(document).ready(function () {
 
 	function search() {
 		var $rasp_item = $('.rasp_item'),
-				search_header = $search_input.text().toLowerCase(),
+				search_header = $search_input.val().toLowerCase(),
 				$search_container = $('.sh_block'),
 				rasp_name;
 
@@ -35,28 +35,14 @@ $(document).ready(function () {
 			}
 		})
 		delete rasp_name;
-		console.log('=-=-=-=-=-=-=-=');
+		//console.log('=-=-=-=-=-=-=-=');
 		console.log($('.hidden_item_block').length);
 		console.log($rasp_item.length);
-		console.log('+-+-+-+-+-+-+-+');
-		//if ($('.hidden_item_block').length === $rasp_item.length) {alert('21')}
+		//console.log('+-+-+-+-+-+-+-+');
 		$('.hidden_item_block').length === $rasp_item.length ? $search_container.addClass('empty_search') : $search_container.removeClass('empty_search');
-	}
-
-	function clear_search() {
-		console.log('clear_search');
-		var $rasp_item = $('.rasp_item'),
-				$hidden_item = $('.hidden_item_block'),
-				$search_container = $('.sh_block')
-
-		$hidden_item.each(function() {
-			$rasp_item.length === $hidden_item.length ? $search_container.addClass('empty_search') : $search_container.removeClass('empty_search');
-		})
 	}
 
 	$search_input.on('keyup',function(e){
 		search();
-		//setTimeout(clear_search(),4400);
 	})
-	//$search_input.on('keydown',function(e){search()})
 });

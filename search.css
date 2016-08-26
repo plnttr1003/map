@@ -6,10 +6,12 @@
 	background: #ece7d0;
 }
 .search_input {
+	display: block;
 	height: 40px;
 	width: 100%;
 	max-width: 1030px;
 	margin: 20px auto 0;
+	border: none;
 	border-bottom: 1px solid #000;
 	background: #ebebeb;
 	line-height: 40px;
