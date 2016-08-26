@@ -15,6 +15,10 @@
 	line-height: 40px;
 	font-size: 22px;
 	color: #000;
+	white-space: nowrap;
+}
+.search_input div {
+	display: inline-block;
 }
 h2.mb_title, .rasp_h {
 	top:-109px;
@@ -22,6 +26,25 @@ h2.mb_title, .rasp_h {
 .sh_title_inner, .sh_block {
 	background: none;
 }
-.hidden_item {
+.hidden_item_block {
 	display: none;
+}
+.sh_block.empty_search {
+	position: relative;
+	height: 150px;
+	min-height: 100px;
+}
+.empty_search:after {
+	content:'Ничего не найдено';
+	display:block;
+	position:absolute;
+	top:0;
+	right:0;
+	left:0;
+	height:150px;
+	line-height:150px;
+	font-size:22px;
+	color: #003cff;
+	text-align:center;
+	font-weight: bold;
 }

@@ -1,47 +1,62 @@
 $(document).ready(function () {
+	var $search_input = $('.search_input');
+
 	function search() {
-		//alert('123');
-			transliterate = (
-				function() {
-					var
-						rus = "щ   ш  ч  ц  ю  я  ё  ж  ъ  ы  э  а б в г д е з и й к л м н о п р с т у ф х ь".split(/ +/g),
+		var $rasp_item = $('.rasp_item'),
+				search_header = $search_input.text().toLowerCase(),
+				$search_container = $('.sh_block'),
+				rasp_name;
+
+		transliterate = (
+			function() {
+				var rus = "щ   ш  ч  ц  ю  я  ё  ж  ъ  ы  э  а б в г д е з и й к л м н о п р с т у ф х ь".split(/ +/g),
 						eng = "shh sh ch cz yu ya yo zh `` y' e` a b v g d e z i j k l m n o p r s t u f x `".split(/ +/g);
-					return function(text, engToRus) {
-						var x;
-						for(x = 0; x < rus.length; x++) {
-							text = text.split(engToRus ? eng[x] : rus[x]).join(engToRus ? rus[x] : eng[x]);
-							text = text.split(engToRus ? eng[x].toUpperCase() : rus[x].toUpperCase()).join(engToRus ? rus[x].toUpperCase() : eng[x].toUpperCase());	
-						}
-						return text;
+				return function(text, engToRus) {
+					var x;
+					for(x = 0; x < rus.length; x++) {
+						text = text.split(engToRus ? eng[x] : rus[x]).join(engToRus ? rus[x] : eng[x]);
+						text = text.split(engToRus ? eng[x].toUpperCase() : rus[x].toUpperCase()).join(engToRus ? rus[x].toUpperCase() : eng[x].toUpperCase());
 					}
+					return text;
 				}
-			)();
+			}
+		)();
 
-			var search_header = $('.search_input').text().toLowerCase(),
-					rasp_name;
-			$('.rasp_item').each(function() {
-				//$(this).css({'outline':'2px solid #000'});
-				rasp_name = $(this).find('a span').text().toLowerCase();
-				//console.log($rasp_name);
-				if ((rasp_name.indexOf(search_header) != -1) ||
-						(rasp_name.indexOf(transliterate(search_header)) != -1) ||
-						(rasp_name.indexOf(transliterate(transliterate(search_header), true)) != -1))
-				{
-					console.log('=-=-=-rus=-=-=-');
-					console.log(search_header);
-					console.log(transliterate(search_header));
-					console.log(rasp_name);
-					$(this).removeClass('hidden_item');
-					//$(this).css({'outline':'4px solid #000'});
-				}
-				else {
-					console.log('====none====');
-					$(this).addClass('hidden_item');
-				}
-			})
-			delete rasp_name;
-			console.log('uu: ' + rasp_name);
-		}
+		$rasp_item.each(function() {
+			rasp_name = $(this).find('a span').text().toLowerCase();
+			if ((rasp_name.indexOf(search_header) != -1) ||
+					(rasp_name.indexOf(transliterate(search_header)) != -1) ||
+					(rasp_name.indexOf(transliterate(transliterate(search_header), true)) != -1))
+			{
+				$(this).removeClass('hidden_item_block');
+			}
+			else {
+				$(this).addClass('hidden_item_block');
+			}
+		})
+		delete rasp_name;
+		console.log('=-=-=-=-=-=-=-=');
+		console.log($('.hidden_item_block').length);
+		console.log($rasp_item.length);
+		console.log('+-+-+-+-+-+-+-+');
+		//if ($('.hidden_item_block').length === $rasp_item.length) {alert('21')}
+		$('.hidden_item_block').length === $rasp_item.length ? $search_container.addClass('empty_search') : $search_container.removeClass('empty_search');
+	}
 
-	$('.search_input').on('keyup',function(e){search()})
+	function clear_search() {
+		console.log('clear_search');
+		var $rasp_item = $('.rasp_item'),
+				$hidden_item = $('.hidden_item_block'),
+				$search_container = $('.sh_block')
+
+		$hidden_item.each(function() {
+			$rasp_item.length === $hidden_item.length ? $search_container.addClass('empty_search') : $search_container.removeClass('empty_search');
+		})
+	}
+
+	$search_input.on('keyup',function(e){
+		search();
+		//setTimeout(clear_search(),4400);
+	})
+	//$search_input.on('keydown',function(e){search()})
 });
