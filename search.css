@@ -1,0 +1,27 @@
+﻿.sh_title_inner {
+	background:#fc0;
+	height: 100px;
+}
+.sh_block {
+	background: #ece7d0;
+}
+.search_input {
+	height: 40px;
+	width: 100%;
+	max-width: 1030px;
+	margin: 20px auto 0;
+	border-bottom: 1px solid #000;
+	background: #ebebeb;
+	line-height: 40px;
+	font-size: 22px;
+	color: #000;
+}
+h2.mb_title, .rasp_h {
+	top:-109px;
+}
+.sh_title_inner, .sh_block {
+	background: none;
+}
+.hidden_item {
+	display: none;
+}
