@@ -17,11 +17,11 @@ $(document).ready(function () {
 				}
 			)();
 
-			var search_header = $('.search_input').text(),
+			var search_header = $('.search_input').text().toLowerCase(),
 					rasp_name;
 			$('.rasp_item').each(function() {
-				$(this).css({'outline':'2px solid #000'});
-				rasp_name = $(this).find('a span').text();
+				//$(this).css({'outline':'2px solid #000'});
+				rasp_name = $(this).find('a span').text().toLowerCase();
 				//console.log($rasp_name);
 				if ((rasp_name.indexOf(search_header) != -1) ||
 						(rasp_name.indexOf(transliterate(search_header)) != -1) ||
@@ -32,7 +32,7 @@ $(document).ready(function () {
 					console.log(transliterate(search_header));
 					console.log(rasp_name);
 					$(this).removeClass('hidden_item');
-					$(this).css({'outline':'4px solid #000'});
+					//$(this).css({'outline':'4px solid #000'});
 				}
 				else {
 					console.log('====none====');
