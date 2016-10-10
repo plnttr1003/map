@@ -1,8 +1,6 @@
-console.log(allCinemas);
-console.log(config.movie);
-
-
 $(document).ready(function() {
+	console.log(allCinemas);
+	console.log(config.movie);
 
 	function city_sel() {
 		$('.drop_menu__i').removeClass('drop_menu__i').addClass('drop_menu__e');
@@ -47,11 +45,11 @@ $(document).ready(function() {
 		var lngC =0;
 		if (cinema_ids) {
 				for (var i in cinema_ids) {
-						for (var k in all) {
-							if (all[k][0] == cinema_ids[i]) {
-								all2.push(all[k]);
-							}
+					for (var k in all) {
+						if (all[k][0] == cinema_ids[i]) {
+							all2.push(all[k]);
 						}
+					}
 				}
 
 				for (var i in all2) {
@@ -88,7 +86,6 @@ $(document).ready(function() {
 	};
 
 	if (cinema_ids) {
-		//console.log('****cinema_ids*****');
 		setMarkers(map, all, cinema_ids);
 	}
 };
