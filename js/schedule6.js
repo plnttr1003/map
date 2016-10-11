@@ -1,4 +1,5 @@
 $(document).ready(function() {
+	var c_m = config.map;
 	console.log(allCinemas);
 	console.log(config.movie);
 
@@ -24,7 +25,7 @@ $(document).ready(function() {
 
 			var myOptions = {
 			styles: grayStyles,
-			zoom: 9,
+			zoom: c_m[2], // установка зума карты
 			scrollwheel: false,
 			mapTypeId: google.maps.MapTypeId.ROADMAP
 
@@ -119,13 +120,13 @@ $(document).ready(function() {
 							$(this).find('a').attr('name',cinema_href[cinema_href.length - 1]);
 			  			cinema_ids.push(cinema_href[cinema_href.length - 1]);
 					});
-					initialize('load', cinema_ids);
+					if (config.map === true) initialize('load', cinema_ids); // загрузка карты
 			});
 	})
 
 	if (urlPath) {urlPath = '/'+urlPath}
 	else {urlPath = '/msk'}
-	$('.sh_block').load('https://kassa.rambler.ru' + urlPath +  '/movie/' + config.movie + '?noredirect=1 #schedule', function() {
+	$('.sh_block').load('https://kassa.rambler.ru' + urlPath +  '/movie/' + c_m[1] + '?noredirect=1 #schedule', function() {
 		initialize('clear');
 		$('.rasp_filter.cf.s-schedule-filter').remove();
 		$('.btn_rasp').removeClass('btn_rasp').addClass('btn_rasp_static');
@@ -134,6 +135,6 @@ $(document).ready(function() {
 				$(this).find('a').attr('name',cinema_href[cinema_href.length - 1]);
   			cinema_ids.push(cinema_href[cinema_href.length - 1]);
 		});
-		initialize('load', cinema_ids);
+		if (config.map === true) initialize('load', cinema_ids); // загрузка карты
 	});
 })
