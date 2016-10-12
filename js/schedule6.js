@@ -110,7 +110,7 @@ $(document).ready(function() {
 							$(this).find('a').attr('name',cinema_href[cinema_href.length - 1]);
 			  			cinema_ids.push(cinema_href[cinema_href.length - 1]);
 					});
-					if (config.map === true) initialize('load', cinema_ids); // загрузка карты
+					if (config.map[0] === true) initialize('load', cinema_ids); // загрузка карты
 			});
 	})
 
@@ -123,6 +123,6 @@ $(document).ready(function() {
 				$(this).find('a').attr('name',cinema_href[cinema_href.length - 1]);
   			cinema_ids.push(cinema_href[cinema_href.length - 1]);
 		});
-		if (config.map === true) initialize('load', cinema_ids); // загрузка карты
+		if (config.map[0] === true) initialize('load', cinema_ids); // загрузка карты
 	});
 })

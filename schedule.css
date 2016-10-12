@@ -20,7 +20,10 @@ h2.mb_title {
 	left: 50%;
 	top: -99px;
 }
-li.btn_rasp_static {
+.rasp_filter {
+	display: none;
+}
+li.btn_rasp_static, li.btn_rasp {
 	display: inline-block;
 	font-size: 15px;
 	font-family: helvetica, arial;
@@ -34,11 +37,15 @@ li.btn_rasp_static {
 	text-align: center;
 	font-weight: bold;
 	cursor: pointer;
+	box-shadow: none;
+	box-sizing: content-box;
+	background: none;
 }
-li.btn_rasp_static:hover {
-	background: #003CFF;
-	color: #fff;
-	border-color: #003CFF;
+li.btn_rasp_static:hover, li.btn_rasp:hover {
+	background: #003CFF!important;
+	color: #fff!important;
+	border-color: #003CFF!important;
+	box-shadow: none!important;
 }
 .rasp_title {
 	font-size: 22px;
