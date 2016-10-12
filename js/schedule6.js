@@ -1,17 +1,7 @@
 $(document).ready(function() {
-	var c_m = config.map;
 	console.log(allCinemas);
 	console.log(config.movie);
 
-	function city_sel() {
-		$('.drop_menu__i').removeClass('drop_menu__i').addClass('drop_menu__e');
-		$('.drop_menu__e').on('click',function(e){
-			e.preventDefault();
-			$.cookie('cityLocation', $(this).attr('data-target'), {path:'/'});
-			location.reload();
-		})
-	}
-	setTimeout(city_sel, 100);
 
 	var
 	cm,
@@ -25,7 +15,7 @@ $(document).ready(function() {
 
 			var myOptions = {
 			styles: grayStyles,
-			zoom: c_m[2], // установка зума карты
+			zoom: config.map[2], // установка зума карты
 			scrollwheel: false,
 			mapTypeId: google.maps.MapTypeId.ROADMAP
 
@@ -124,9 +114,7 @@ $(document).ready(function() {
 			});
 	})
 
-	if (urlPath) {urlPath = '/'+urlPath}
-	else {urlPath = '/msk'}
-	$('.sh_block').load('https://kassa.rambler.ru' + urlPath +  '/movie/' + c_m[1] + '?noredirect=1 #schedule', function() {
+	$('.sh_block').load('https://kassa.rambler.ru/movie/' + config.movie[1] + '?noredirect=1 #schedule', function() {
 		initialize('clear');
 		$('.rasp_filter.cf.s-schedule-filter').remove();
 		$('.btn_rasp').removeClass('btn_rasp').addClass('btn_rasp_static');

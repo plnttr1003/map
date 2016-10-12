@@ -18,5 +18,6 @@ $(document).ready(function() {
 	if (config.header === true) {$bodyScript.last().after(header)}
 	if (config.footer === true) {$body.append(footer)}
 
+	console.log(config.map);
 	if (config.map[0] === true) {$containerOuter.append(mapCanvas)}
 })

@@ -786,10 +786,7 @@ body {
 	display: none;
 }
 .container_outer {
-	background-image: linear-gradient(to top, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9)), url(images/header_i.jpg);
-	background-position: 50% 0, 50% 100%;
-	background-repeat: no-repeat;
-	padding-bottom: 194px;
+
 }
 .container.slider_title {
 	padding-top: 427px;
